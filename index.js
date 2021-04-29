@@ -1,21 +1,21 @@
-const returnFirstTwoDrivers = function () {
-   let myArray = ['Sally', 'Bob', 'Freddy', 'Claudia'];
-   return myArray.slice (0,2);
+const returnFirstTwoDrivers = function (drivers) {
+   return drivers.slice (0,2);
 };
-returnFirstTwoDrivers();
 
-const returnLastTwoDrivers = function () {
-    let myArray = ['Sally', 'Bob', 'Freddy', 'Claudia'];
-    return myArray.slice (-2);
+const returnLastTwoDrivers = function (drivers) {
+    return drivers.slice (-2);
  };
- returnLastTwoDrivers();
 
 //  + `selectingDrivers` — This is an array containing two elements: the two
 //   functions that we previously defined (`returnFirstTwoDrivers()` and
 //   `returnLastTwoDrivers()`).
  
 const selectingDrivers = [returnFirstTwoDrivers, returnLastTwoDrivers];
-
+// + `createFareMultiplier()` — This is a higher-order function that takes in one
+//   argument, an integer, and returns a function that will multiply a fare for a
+//   ride accordingly. If `createFareMultiplier()` receives an argument of `4`, it
+//   will return a function that takes in a fare as an argument and quadruples the
+//   fare.
 
 function createFareMultiplier(number) {
     function calculateFare(fare) { 
@@ -24,6 +24,8 @@ function createFareMultiplier(number) {
     
     return calculateFare
   };
+
+
 
 //   `fareDoubler()` — Declare a variable with `const` and assign a function
 //   returned by `createFareMultiplier()` to it. Invoke `createFareMultiplier()` in
@@ -44,6 +46,8 @@ const fareTripler = createFareMultiplier (3);
 //   function. Based on these two arguments, `selectDifferentDrivers()` will return
 //   either the first two drivers or the last two drivers.
 
-function selectDifferentDrivers(par1, returnFirstTwoDrivers){
-    return returnFirstTwoDrivers ()
+function selectDifferentDrivers (arrayOfDrivers, func){
+    return func(arrayOfDrivers);
 };
+
+
